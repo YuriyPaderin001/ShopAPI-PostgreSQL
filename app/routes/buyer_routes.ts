@@ -13,6 +13,7 @@ export default function buyerRoutes(app: any, connection: any) {
       response.send(buyers);  
     } catch (err) {
       console.log(err);
+      response.send({'Error': 'Error'});
     }
   });
 
@@ -26,6 +27,7 @@ export default function buyerRoutes(app: any, connection: any) {
       response.send(result);
     } catch (err) {
       console.log(err);
+      response.send({'Error': 'Error'});
     }
   });
 
@@ -39,6 +41,7 @@ export default function buyerRoutes(app: any, connection: any) {
       response.send(result);
     } catch (err) {
       console.log(err);
+      response.send({'Error': 'Error'});
     }
   });
 
@@ -53,6 +56,7 @@ export default function buyerRoutes(app: any, connection: any) {
       response.send(result);
     } catch (err) {
       console.log(err);
+      response.send({'Error': 'Error'});
     }
   });
 };

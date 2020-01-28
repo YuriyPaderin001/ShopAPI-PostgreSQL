@@ -13,6 +13,7 @@ export default function orderRoutes(app: any, connection: any) {
       response.send(orders); 
     } catch (err) {
       console.log(err);
+      response.send({'Error': 'Error'});
     }
   });
 
@@ -30,6 +31,7 @@ export default function orderRoutes(app: any, connection: any) {
       response.send(result);  
     } catch (err) {
       console.log(err);
+      response.send({'Error': 'Error'});
     }
   });
 
@@ -43,6 +45,7 @@ export default function orderRoutes(app: any, connection: any) {
       response.send(result);  
     } catch (err) {
       console.log(err);
+      response.send({'Error': 'Error'});
     }
   });
 
@@ -57,6 +60,7 @@ export default function orderRoutes(app: any, connection: any) {
       response.send(result);
     } catch (err) {
       console.log(err);
+      response.send({'Error': 'Error'});
     }
   });
 };
