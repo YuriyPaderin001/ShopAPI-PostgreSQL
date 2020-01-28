@@ -4,44 +4,60 @@ import Order from '../models/Order';
 
 export default function orderRoutes(app: any, connection: any) {
   app.get('/orders', async (request: Request, response: Response) => {
-    const orderRepository = connection.getRepository(Order);
+    try {
+      const orderRepository = connection.getRepository(Order);
 
-    let query = request.query;
-    const orders = await orderRepository.find(query);
+      let query = request.query;
+      const orders = await orderRepository.find(query);
 
-    response.send(orders);
+      response.send(orders); 
+    } catch (err) {
+      console.log(err);
+    }
   });
 
   app.post('/orders', async (request: Request, response: Response) => {
-    const orderRepository = connection.getRepository(Order);
+    try {
+      const orderRepository = connection.getRepository(Order);
 
-    let order = request.body;
-    if (!order.date) {
-      order.date = Date.now().toString();
-    }
+      let order = request.body;
+      if (!order.date) {
+        order.date = Date.now().toString();
+      }
     
-    const result = await orderRepository.save(order); 
+      const result = await orderRepository.save(order); 
 
-    response.send(result);
+      response.send(result);  
+    } catch (err) {
+      console.log(err);
+    }
   });
 
   app.delete('/orders', async (request: Request, response: Response) => {
-    const orderRepository = connection.getRepository(Order);
+    try {
+      const orderRepository = connection.getRepository(Order);
 
-    let query = request.query;
-    const result = await orderRepository.delete(query);
+      let query = request.query;
+      const result = await orderRepository.delete(query);
 
-    response.send(result);
+      response.send(result);  
+    } catch (err) {
+      console.log(err);
+    }
   });
 
   app.put('/orders', async (request: Request, response: Response) => {
-    const orderRepository = connection.getRepository(Order);
+    try {
+      const orderRepository = connection.getRepository(Order);
 
-    let query = request.query;
-    let order = request.body;
-    const result = await orderRepository.update(query, order);
+      let query = request.query;
+      let order = request.body;
+      const result = await orderRepository.update(query, order);
 
-    response.send(result);
+      response.send(result);
+    } catch (err) {
+      console.log(err);
+    }
   });
 };
 
